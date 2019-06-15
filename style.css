@@ -18,7 +18,6 @@ body {
   }
   .fsm {
     margin: 10vh 5vw;
-    background-color: blue;
     height: 100px;
     flex: 1;
     display: flex;
@@ -120,4 +119,7 @@ body {
   }
   .color9 {
     background-color: #FF1194;
+  }
+  .color10 {
+    background-color: #4285f4;
   }

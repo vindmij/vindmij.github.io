@@ -41,7 +41,7 @@ var openFSM = function(event) {
 		$fsmActual.style.top = '0';
 		$fsmActual.style.left = '0';
 		$fsmActual.style.margin = '0';
-	}, 1);
+	}, 0.7);
 	
 	setTimeout(function(){
 		$fsmActual.classList.remove('growing');

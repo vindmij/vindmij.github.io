@@ -8,10 +8,11 @@ document.body.appendChild(fsmActual);
 var $fsm = document.querySelectorAll('.fsm');;
 var $fsmActual = document.querySelector('#fsm_actual');
 $fsmActual.style.position = "absolute";
+var $metaThemeColor = document.querySelector("meta[name=theme-color]");
 
 var position = {};
 var size = {};
-
+var color;
 
 //modal action stuffs
 var openFSM = function(event) {
@@ -34,6 +35,9 @@ var openFSM = function(event) {
 		var classes = $this.classList.value.split(' ');
 		for (var i = 0; i < classes.length; i++) {
 			$fsmActual.classList.add(classes[i]);
+			if(classes[i].match(/color/)) {
+				color = classes[i].substring(5, 11);
+			}
 		}
 		$fsmActual.classList.add('growing');
 		$fsmActual.style.height = '100vh';
@@ -45,7 +49,8 @@ var openFSM = function(event) {
 	
 	setTimeout(function(){
 		$fsmActual.classList.remove('growing');
-		$fsmActual.classList.add('full-screen')
+		$fsmActual.classList.add('full-screen');
+		$metaThemeColor.setAttribute("content", "#"+color);
 	}, 1000);
 };
 
@@ -59,6 +64,7 @@ var closeFSM = function(event){
 	$this.style.margin = '0';
 	$this.classList.remove('full-screen');
 	$this.classList.add('shrinking');
+	$metaThemeColor.setAttribute("content", "#f5f5f5");
 	
 	setTimeout(function(){
 		while($this.firstChild) $this.removeChild($this.firstChild);

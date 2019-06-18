@@ -51,7 +51,7 @@ var openFSM = function(event) {
 		$fsmActual.classList.remove('growing');
 		$fsmActual.classList.add('full-screen');
 		$metaThemeColor.setAttribute("content", "#"+color);
-	}, 1000);
+	}, 500);
 };
 
 var closeFSM = function(event){
@@ -73,7 +73,7 @@ var closeFSM = function(event){
 			 classList.remove(classList.item(0));
 		}
 		$this.style = '';;
-	}, 1000);
+	}, 500);
 };
 
 for (var i = 0; i < $fsm.length; i++) {

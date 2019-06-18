@@ -14,6 +14,8 @@ var position = {};
 var size = {};
 var color;
 
+var noSleep = new NoSleep();
+
 //modal action stuffs
 var openFSM = function(event) {
 	var $this = event.currentTarget;
@@ -29,6 +31,8 @@ var openFSM = function(event) {
 	$fsmActual.style.height = size.height;
 	$fsmActual.style.width = size.width;
 	$fsmActual.style.margin = $this.style.margin;
+
+  	noSleep.enable();
 	
 	setTimeout(function(){
 		$fsmActual.innerHTML = $this.innerHTML;
@@ -65,6 +69,8 @@ var closeFSM = function(event){
 	$this.classList.remove('full-screen');
 	$this.classList.add('shrinking');
 	$metaThemeColor.setAttribute("content", "#f5f5f5");
+
+	noSleep.disable();
 	
 	setTimeout(function(){
 		while($this.firstChild) $this.removeChild($this.firstChild);
